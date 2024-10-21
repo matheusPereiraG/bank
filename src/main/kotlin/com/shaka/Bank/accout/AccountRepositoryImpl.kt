@@ -12,6 +12,15 @@ class AccountRepositoryImpl : AccountRepository {
         }
     }
 
+    override fun getAccountById(accountId: Long): GenericResult<Account> {
+        return try {
+            val account = storage[accountId]
+            GenericResult.Success(data = account)
+        } catch (e: Exception) {
+            GenericResult.Error(errorMsg = "Could not find account for the provided Id")
+        }
+    }
+
     override fun getNewAccountId(): Long {
         return id.getAndIncrement()
     }

@@ -2,6 +2,8 @@ package com.shaka.Bank.di
 
 import com.shaka.Bank.accout.AccountRepository
 import com.shaka.Bank.accout.AccountRepositoryImpl
+import com.shaka.Bank.transaction.TransactionRepository
+import com.shaka.Bank.transaction.TransactionRepositoryImpl
 import com.shaka.Bank.users.UsersRepository
 import com.shaka.Bank.users.UsersRepositoryImpl
 import org.springframework.context.annotation.Bean
@@ -18,6 +20,11 @@ class RepositoryConfig {
     @Bean
     fun accountRepository(): AccountRepository {
         return AccountRepositoryImpl()
+    }
+
+    @Bean
+    fun transactionRepository(): TransactionRepository {
+        return TransactionRepositoryImpl()
     }
 
 }

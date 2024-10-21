@@ -2,14 +2,14 @@ package com.shaka.Bank.accout
 
 import com.shaka.Bank.accout.dto.CreateAccountRequest
 import com.shaka.Bank.accout.dto.CreateAccountResponse
+import com.shaka.Bank.accout.dto.GetAccountBalanceResponse
+import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
 import com.shaka.Bank.users.UsersRepository
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @Validated
@@ -45,5 +45,18 @@ class AccountController(
         )
     }
 
+    @GetMapping("/account/balance/{id}")
+    fun getBalance(@PathVariable id: Long): ResponseEntity<ApiResponse<GetAccountBalanceResponse>> {
+        val result = accountRepository.getAccountById(id)
 
+        return when (result) {
+            is GenericResult.Success -> {
+                ResponseEntity.ok(ApiResponse(data = GetAccountBalanceResponse(amount = result.data!!.amount)))
+            }
+
+            is GenericResult.Error -> {
+                ResponseEntity.badRequest().body(ApiResponse(message = result.errorMsg))
+            }
+        }
+    }
 }
