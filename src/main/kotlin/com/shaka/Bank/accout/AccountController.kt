@@ -5,7 +5,7 @@ import com.shaka.Bank.accout.dto.CreateAccountResponse
 import com.shaka.Bank.accout.dto.GetAccountBalanceResponse
 import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
-import com.shaka.Bank.users.UsersRepository
+import com.shaka.Bank.users.UserRepository
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.*
 @Validated
 class AccountController(
     private val accountRepository: AccountRepository,
-    private val usersRepository: UsersRepository
+    private val userRepository: UserRepository
 ) {
     @PostMapping("/account")
     fun newAccount(@Valid @RequestBody request: CreateAccountRequest): ResponseEntity<ApiResponse<CreateAccountResponse>> {
         val userId = request.userId
 
-        val user = usersRepository.getUserById(userId)
+        val user = userRepository.getUserById(userId)
             ?: return ResponseEntity.badRequest()
                 .body(ApiResponse(message = "User does not exist, please create one before creating an account"))
 
@@ -51,7 +51,12 @@ class AccountController(
 
         return when (result) {
             is GenericResult.Success -> {
-                ResponseEntity.ok(ApiResponse(data = GetAccountBalanceResponse(amount = result.data!!.amount)))
+                val user = userRepository.getUserById(result.data!!.userId)
+                if(user?.isActive == true) {
+                    ResponseEntity.ok(ApiResponse(data = GetAccountBalanceResponse(amount = result.data.amount)))
+                } else {
+                    ResponseEntity.badRequest().body(ApiResponse(message = "User is not available"))
+                }
             }
 
             is GenericResult.Error -> {

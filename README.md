@@ -16,6 +16,8 @@ This should open your application on your localhost with port 8080
 While running these commands please make sure you are located in the root folder of the project. Otherwise change the path
 for json files accordingly
 
+## User
+
 ### Add user
 
 ```bash
@@ -29,9 +31,29 @@ curl -X POST http://127.0.0.1:8080/user  \
 curl -X PATCH http://127.0.0.1:8080/user/deactivate/0
 ```
 
+## Account
 ### Add Account
 ```bash 
 curl -X POST http://127.0.0.1:8080/account  \
      -H "Content-Type: application/json" \
      -d @src/main/resources/addAccount.json
+```
+### Check balance
+```bash 
+curl -X GET http://127.0.0.1:8080/account/balance/0
+```
+
+## Transactions
+### Withdraw from account
+```bash
+curl -X POST http://127.0.0.1:8080/transaction/withdraw \
+     -H "Content-Type: application/json" \
+     -d @src/main/resources/withdraw.json
+```
+
+### Deposit to account
+```bash
+curl -X POST http://127.0.0.1:8080/transaction/deposit \
+     -H "Content-Type: application/json" \
+     -d @src/main/resources/deposit.json
 ```

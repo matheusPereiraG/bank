@@ -3,7 +3,7 @@ package com.shaka.Bank.users
 import com.shaka.Bank.core.GenericResult
 import java.util.concurrent.atomic.AtomicLong
 
-class UsersRepositoryImpl : UsersRepository {
+class UserRepositoryImpl : UserRepository {
     private val storage: HashMap<Long, User> = hashMapOf()
 
     private val userIdCreator: AtomicLong = AtomicLong(0)

@@ -2,7 +2,7 @@ package com.shaka.Bank.users
 
 import com.shaka.Bank.core.GenericResult
 
-interface UsersRepository {
+interface UserRepository {
     fun insertUsers(vararg users: User)
 
     fun getUserById(userId: Long): User?

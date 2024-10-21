@@ -4,8 +4,8 @@ import com.shaka.Bank.accout.AccountRepository
 import com.shaka.Bank.accout.AccountRepositoryImpl
 import com.shaka.Bank.transaction.TransactionRepository
 import com.shaka.Bank.transaction.TransactionRepositoryImpl
-import com.shaka.Bank.users.UsersRepository
-import com.shaka.Bank.users.UsersRepositoryImpl
+import com.shaka.Bank.users.UserRepository
+import com.shaka.Bank.users.UserRepositoryImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration
 class RepositoryConfig {
 
     @Bean
-    fun usersRepository(): UsersRepository {
-        return UsersRepositoryImpl()
+    fun usersRepository(): UserRepository {
+        return UserRepositoryImpl()
     }
 
     @Bean

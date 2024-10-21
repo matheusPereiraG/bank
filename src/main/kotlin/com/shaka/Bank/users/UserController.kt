@@ -15,19 +15,19 @@ import org.springframework.web.bind.annotation.RestController
 
 @Validated
 @RestController
-class UserController(private val usersRepository: UsersRepository) {
+class UserController(private val userRepository: UserRepository) {
     @PostMapping("/user")
     fun newUser(
         @Valid @RequestBody request: UserCreationRequest,
     ): ResponseEntity<ApiResponse<UserCreationResponse>> {
-        val newId = usersRepository.getNewUserId()
+        val newId = userRepository.getNewUserId()
         val newUser = User(
             id = newId,
             firstName = request.firstName,
             lastName = request.lastName,
             isActive = true,
         )
-        usersRepository.insertUsers(newUser)
+        userRepository.insertUsers(newUser)
         return ResponseEntity.ok().body(
             ApiResponse(data = UserCreationResponse(userId = newUser.id), message = "User created successfully")
         )
@@ -35,7 +35,7 @@ class UserController(private val usersRepository: UsersRepository) {
 
     @PatchMapping("/user/deactivate/{id}")
     fun deactivateUser(@PathVariable id: Long): ResponseEntity<ApiResponse<Nothing>> {
-        val result = usersRepository.deactivateUser(id)
+        val result = userRepository.deactivateUser(id)
         return when(result) {
             is GenericResult.Success -> {
                 ResponseEntity.ok().body(ApiResponse(message = result.data))

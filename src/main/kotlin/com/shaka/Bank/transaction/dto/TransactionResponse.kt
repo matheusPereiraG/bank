@@ -1,4 +1,5 @@
 package com.shaka.Bank.transaction.dto
 
-class TransactionResponse {
-}
+data class TransactionResponse (
+    val newAccountAmount: Double
+)

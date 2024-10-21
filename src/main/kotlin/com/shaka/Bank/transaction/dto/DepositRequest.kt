@@ -1,4 +1,10 @@
 package com.shaka.Bank.transaction.dto
 
-class DepositRequest {
-}
+import jakarta.validation.constraints.NotNull
+
+data class DepositRequest (
+    @field:NotNull
+    val accountId: Long,
+    @field:NotNull
+    val amountToDeposit: Double,
+)

@@ -1,4 +1,10 @@
 package com.shaka.Bank.transaction.dto
 
-class WithdrawRequest {
-}
+import jakarta.validation.constraints.NotNull
+
+data class WithdrawRequest (
+    @field:NotNull
+    val accountId: Long,
+    @field:NotNull
+    val amountToWithdraw: Double,
+)
