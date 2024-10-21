@@ -21,39 +21,51 @@ for json files accordingly
 ### Add user
 
 ```bash
-curl -X POST http://127.0.0.1:8080/user  \
+curl -i -X POST http://127.0.0.1:8080/user  \
      -H "Content-Type: application/json" \
      -d @src/main/resources/addUser.json
 ```
 
 ### Deactivate User
 ```bash
-curl -X PATCH http://127.0.0.1:8080/user/deactivate/0
+curl -i -X PATCH http://127.0.0.1:8080/user/deactivate/0
 ```
 
 ## Account
 ### Add Account
 ```bash 
-curl -X POST http://127.0.0.1:8080/account  \
+curl -i -X POST http://127.0.0.1:8080/account  \
      -H "Content-Type: application/json" \
      -d @src/main/resources/addAccount.json
 ```
 ### Check balance
 ```bash 
-curl -X GET http://127.0.0.1:8080/account/balance/0
+curl -i -X GET http://127.0.0.1:8080/account/balance/0
 ```
 
 ## Transactions
 ### Withdraw from account
 ```bash
-curl -X POST http://127.0.0.1:8080/transaction/withdraw \
+curl -i -X POST http://127.0.0.1:8080/transaction/withdraw \
      -H "Content-Type: application/json" \
      -d @src/main/resources/withdraw.json
 ```
 
 ### Deposit to account
 ```bash
-curl -X POST http://127.0.0.1:8080/transaction/deposit \
+curl -i -X POST http://127.0.0.1:8080/transaction/deposit \
      -H "Content-Type: application/json" \
      -d @src/main/resources/deposit.json
+```
+
+### Transfer to account
+```bash
+curl -i -X POST http://127.0.0.1:8080/transaction/transfer \
+     -H "Content-Type: application/json" \
+     -d @src/main/resources/transfer.json
+```
+
+### Transaction History
+```bash
+curl -i -X GET http://127.0.0.1:8080/transaction/history/0
 ```

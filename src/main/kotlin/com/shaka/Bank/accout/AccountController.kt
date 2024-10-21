@@ -10,6 +10,7 @@ import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import java.math.BigDecimal
 
 @RestController
 @Validated
@@ -31,7 +32,7 @@ class AccountController(
         val newAccount = Account(
             id = accountRepository.getNewAccountId(),
             userId = user.id,
-            amount = request.initialAmount ?: 0.0
+            amount = request.initialAmount ?: BigDecimal(0)
         )
 
         accountRepository.insertAccount(newAccount)

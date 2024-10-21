@@ -3,9 +3,11 @@ package com.shaka.Bank.transaction.dto
 import jakarta.validation.constraints.NotNull
 import java.math.BigDecimal
 
-data class WithdrawRequest (
+data class TransferRequest (
     @field:NotNull
-    val accountId: Long,
+    val sourceAccountId: Long,
     @field:NotNull
-    val amountToWithdraw: BigDecimal,
+    val destinationAccountId: Long,
+    @field:NotNull
+    val amount: BigDecimal,
 )

@@ -22,6 +22,6 @@ class TransactionRepositoryImpl : TransactionRepository {
                 accountTransactions.add(entry.value)
             }
         }
-        return accountTransactions
+        return accountTransactions.sortedByDescending { it.timestamp }
     }
 }

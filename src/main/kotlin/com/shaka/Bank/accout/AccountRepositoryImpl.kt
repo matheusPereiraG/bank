@@ -13,11 +13,11 @@ class AccountRepositoryImpl : AccountRepository {
     }
 
     override fun getAccountById(accountId: Long): GenericResult<Account> {
-        return try {
-            val account = storage[accountId]
+        val account = storage[accountId]
+        return if(account != null) {
             GenericResult.Success(data = account)
-        } catch (e: Exception) {
-            GenericResult.Error(errorMsg = "Could not find account for the provided Id")
+        } else {
+            GenericResult.Error(errorMsg = "Account with id: $accountId does not exist")
         }
     }
 

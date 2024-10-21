@@ -5,6 +5,7 @@ import com.shaka.Bank.core.dto.ApiResponse
 import com.shaka.Bank.users.dto.UserCreationRequest
 import com.shaka.Bank.users.dto.UserCreationResponse
 import jakarta.validation.Valid
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PatchMapping
@@ -28,7 +29,7 @@ class UserController(private val userRepository: UserRepository) {
             isActive = true,
         )
         userRepository.insertUsers(newUser)
-        return ResponseEntity.ok().body(
+        return ResponseEntity.status(HttpStatus.CREATED).body(
             ApiResponse(data = UserCreationResponse(userId = newUser.id), message = "User created successfully")
         )
     }
