@@ -1,4 +1,4 @@
-package com.shaka.Bank.accout.dto
+package com.shaka.Bank.account.dto
 
 import jakarta.validation.constraints.NotNull
 import java.math.BigDecimal

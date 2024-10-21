@@ -1,4 +1,4 @@
-package com.shaka.Bank.accout.dto
+package com.shaka.Bank.account.dto
 
 import java.math.BigDecimal
 

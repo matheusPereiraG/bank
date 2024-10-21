@@ -1,12 +1,13 @@
-package com.shaka.Bank.accout
+package com.shaka.Bank.account
 
-import com.shaka.Bank.accout.dto.CreateAccountRequest
-import com.shaka.Bank.accout.dto.CreateAccountResponse
-import com.shaka.Bank.accout.dto.GetAccountBalanceResponse
+import com.shaka.Bank.account.dto.CreateAccountRequest
+import com.shaka.Bank.account.dto.CreateAccountResponse
+import com.shaka.Bank.account.dto.GetAccountBalanceResponse
 import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
 import com.shaka.Bank.users.UserRepository
 import jakarta.validation.Valid
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
@@ -36,7 +37,7 @@ class AccountController(
         )
 
         accountRepository.insertAccount(newAccount)
-        return ResponseEntity.ok().body(
+        return ResponseEntity.status(HttpStatus.CREATED).body(
             ApiResponse(
                 data = CreateAccountResponse(
                     newAccount.id,

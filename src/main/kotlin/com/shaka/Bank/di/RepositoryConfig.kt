@@ -1,7 +1,7 @@
 package com.shaka.Bank.di
 
-import com.shaka.Bank.accout.AccountRepository
-import com.shaka.Bank.accout.AccountRepositoryImpl
+import com.shaka.Bank.account.AccountRepository
+import com.shaka.Bank.account.AccountRepositoryImpl
 import com.shaka.Bank.transaction.TransactionRepository
 import com.shaka.Bank.transaction.TransactionRepositoryImpl
 import com.shaka.Bank.users.UserRepository

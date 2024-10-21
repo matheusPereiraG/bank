@@ -1,4 +1,4 @@
-package com.shaka.Bank.accout
+package com.shaka.Bank.account
 
 import java.math.BigDecimal
 

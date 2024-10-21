@@ -1,6 +1,6 @@
 package com.shaka.Bank.transaction
 
-import com.shaka.Bank.accout.AccountRepository
+import com.shaka.Bank.account.AccountRepository
 import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
 import com.shaka.Bank.transaction.dto.*

@@ -1,4 +1,4 @@
-package com.shaka.Bank.accout
+package com.shaka.Bank.account
 
 import com.shaka.Bank.core.GenericResult
 import java.util.concurrent.atomic.AtomicLong
