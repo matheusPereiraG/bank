@@ -5,6 +5,8 @@ import com.shaka.Bank.core.GenericResult
 interface UsersRepository {
     fun insertUsers(vararg users: User)
 
+    fun getUserById(userId: Long): User?
+
     fun getNewUserId(): Long
 
     fun deactivateUser(id: Long): GenericResult<String>

@@ -28,3 +28,10 @@ curl -X POST http://127.0.0.1:8080/user  \
 ```bash
 curl -X PATCH http://127.0.0.1:8080/user/deactivate/0
 ```
+
+### Add Account
+```bash 
+curl -X POST http://127.0.0.1:8080/account  \
+     -H "Content-Type: application/json" \
+     -d @src/main/resources/addAccount.json
+```
