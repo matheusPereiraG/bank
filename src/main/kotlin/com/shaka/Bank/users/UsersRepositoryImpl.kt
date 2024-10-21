@@ -1,5 +1,6 @@
 package com.shaka.Bank.users
 
+import com.shaka.Bank.core.GenericResult
 import java.util.concurrent.atomic.AtomicLong
 
 class UsersRepositoryImpl: UsersRepository {
@@ -17,4 +18,12 @@ class UsersRepositoryImpl: UsersRepository {
         return userIdCreator.getAndIncrement()
     }
 
+    override fun deactivateUser(id: Long): GenericResult<String> {
+        return try {
+            storage[id] = storage[id]!!.copy(isActive = false)
+            GenericResult.Success(data = "User with id $id deactivated successfully")
+        } catch (e: Exception) {
+            GenericResult.Error(errorMsg = "User does not exist for this Id")
+        }
+    }
 }

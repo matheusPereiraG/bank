@@ -23,3 +23,8 @@ curl -X POST http://127.0.0.1:8080/user  \
      -H "Content-Type: application/json" \
      -d @src/main/resources/addUser.json
 ```
+
+### Deactivate User
+```bash
+curl -X PATCH http://127.0.0.1:8080/user/deactivate/0
+```
