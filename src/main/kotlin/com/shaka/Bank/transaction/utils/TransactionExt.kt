@@ -1,9 +1,6 @@
 package com.shaka.Bank.transaction.utils
 
-import com.shaka.Bank.transaction.domain.DepositTransaction
-import com.shaka.Bank.transaction.domain.Transaction
-import com.shaka.Bank.transaction.domain.TransferTransaction
-import com.shaka.Bank.transaction.domain.WithdrawTransaction
+import com.shaka.Bank.transaction.domain.*
 import com.shaka.Bank.transaction.dto.TransactionItemResponse
 
 
@@ -12,7 +9,7 @@ fun List<Transaction>.toResponseItems(accountId: Long): List<TransactionItemResp
         when (it) {
             is WithdrawTransaction -> {
                 TransactionItemResponse(
-                    transactionType = "Withdraw",
+                    transactionType = TransactionTypesEnum.WITHDRAW.name,
                     timestamp = it.timestamp.toString(),
                     transactionAmount = it.transactionAmount,
                 )
@@ -21,22 +18,27 @@ fun List<Transaction>.toResponseItems(accountId: Long): List<TransactionItemResp
             is TransferTransaction -> {
                 if (it.sourceAccountId == accountId) {
                     TransactionItemResponse(
-                        transactionType = "Transfer to account ${it.destinationAccountId}",
+                        transactionType = TransactionTypesEnum.SENT.name,
                         timestamp = it.timestamp.toString(),
                         transactionAmount = it.transactionAmount,
-                    )
+                        fromAccount = it.sourceAccountId,
+                        toAccount = it.destinationAccountId,
+
+                        )
                 } else if (it.destinationAccountId == accountId) {
                     TransactionItemResponse(
-                        transactionType = "Received Transfer from ${it.sourceAccountId}",
+                        transactionType = TransactionTypesEnum.RECEIVED.name,
                         timestamp = it.timestamp.toString(),
                         transactionAmount = it.transactionAmount,
+                        fromAccount = it.sourceAccountId,
+                        toAccount = it.destinationAccountId,
                     )
                 } else null
             }
 
             is DepositTransaction -> {
                 TransactionItemResponse(
-                    transactionType = "Deposit",
+                    transactionType = TransactionTypesEnum.DEPOSIT.name,
                     timestamp = it.timestamp.toString(),
                     transactionAmount = it.transactionAmount,
                 )
