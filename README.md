@@ -47,9 +47,16 @@ considered also for simplicity.
 The identifiers used in this solution are of type Long. In a production level application I would use Strings to store
 these since it can store more identifiers than a Long or Integer.
 
+BigDecimal was chosen as a data holder for the amount since it provides more precision than double or float. It is used
+primarily for these financial purposes.
+
+Currency was not approached in this solution. On a production level application, each user would have a default
+currency (that could be changed anytime) and transactions would probably need to be aware of currencies before making
+operations
+
 ## Test the API
 
-While running these commands please make sure you are located in the root folder of the project. Otherwise change the
+While running these commands please make sure you are located in the root folder of the project. Otherwise, change the
 path
 for json files accordingly.
 
