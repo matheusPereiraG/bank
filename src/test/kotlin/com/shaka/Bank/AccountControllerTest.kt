@@ -1,11 +1,11 @@
 package com.shaka.Bank
 
 import com.shaka.Bank.account.AccountController
-import com.shaka.Bank.account.AccountRepository
+import com.shaka.Bank.account.domain.AccountRepository
 import com.shaka.Bank.account.dto.CreateAccountRequest
 import com.shaka.Bank.core.GenericResult
-import com.shaka.Bank.users.User
-import com.shaka.Bank.users.UserRepository
+import com.shaka.Bank.users.domain.User
+import com.shaka.Bank.users.domain.UserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

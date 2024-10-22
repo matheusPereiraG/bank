@@ -1,4 +1,4 @@
-package com.shaka.Bank.transaction
+package com.shaka.Bank.transaction.domain
 
 import java.math.BigDecimal
 import java.time.LocalDateTime

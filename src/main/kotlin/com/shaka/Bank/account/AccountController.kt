@@ -1,11 +1,13 @@
 package com.shaka.Bank.account
 
+import com.shaka.Bank.account.domain.Account
+import com.shaka.Bank.account.domain.AccountRepository
 import com.shaka.Bank.account.dto.CreateAccountRequest
 import com.shaka.Bank.account.dto.CreateAccountResponse
 import com.shaka.Bank.account.dto.GetAccountBalanceResponse
 import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
-import com.shaka.Bank.users.UserRepository
+import com.shaka.Bank.users.domain.UserRepository
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

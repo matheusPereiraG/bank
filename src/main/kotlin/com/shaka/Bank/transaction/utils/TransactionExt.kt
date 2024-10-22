@@ -1,9 +1,9 @@
 package com.shaka.Bank.transaction.utils
 
-import com.shaka.Bank.transaction.DepositTransaction
-import com.shaka.Bank.transaction.Transaction
-import com.shaka.Bank.transaction.TransferTransaction
-import com.shaka.Bank.transaction.WithdrawTransaction
+import com.shaka.Bank.transaction.domain.DepositTransaction
+import com.shaka.Bank.transaction.domain.Transaction
+import com.shaka.Bank.transaction.domain.TransferTransaction
+import com.shaka.Bank.transaction.domain.WithdrawTransaction
 import com.shaka.Bank.transaction.dto.TransactionItemResponse
 
 

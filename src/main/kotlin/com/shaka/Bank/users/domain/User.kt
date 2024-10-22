@@ -1,4 +1,4 @@
-package com.shaka.Bank.users
+package com.shaka.Bank.users.domain
 
 data class User(
     val id: Long,

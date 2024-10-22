@@ -1,7 +1,7 @@
 package com.shaka.Bank
 
 import com.shaka.Bank.users.UserController
-import com.shaka.Bank.users.UserRepository
+import com.shaka.Bank.users.domain.UserRepository
 import com.shaka.Bank.users.dto.UserCreationRequest
 import jakarta.validation.ConstraintViolationException
 import org.assertj.core.api.Assertions.assertThat

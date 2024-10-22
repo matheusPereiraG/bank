@@ -1,11 +1,15 @@
 package com.shaka.Bank.transaction
 
-import com.shaka.Bank.account.AccountRepository
+import com.shaka.Bank.account.domain.AccountRepository
 import com.shaka.Bank.core.GenericResult
 import com.shaka.Bank.core.dto.ApiResponse
+import com.shaka.Bank.transaction.domain.DepositTransaction
+import com.shaka.Bank.transaction.domain.TransactionRepository
+import com.shaka.Bank.transaction.domain.TransferTransaction
+import com.shaka.Bank.transaction.domain.WithdrawTransaction
 import com.shaka.Bank.transaction.dto.*
 import com.shaka.Bank.transaction.utils.toResponseItems
-import com.shaka.Bank.users.UserRepository
+import com.shaka.Bank.users.domain.UserRepository
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated

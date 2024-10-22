@@ -1,6 +1,8 @@
 package com.shaka.Bank.users
 
 import com.shaka.Bank.core.GenericResult
+import com.shaka.Bank.users.domain.User
+import com.shaka.Bank.users.domain.UserRepository
 import java.util.concurrent.atomic.AtomicLong
 
 class UserRepositoryImpl : UserRepository {

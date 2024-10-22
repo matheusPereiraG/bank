@@ -1,5 +1,7 @@
 package com.shaka.Bank.transaction
 
+import com.shaka.Bank.transaction.domain.Transaction
+import com.shaka.Bank.transaction.domain.TransactionRepository
 import java.util.concurrent.atomic.AtomicLong
 
 class TransactionRepositoryImpl : TransactionRepository {

@@ -1,5 +1,7 @@
 package com.shaka.Bank.account
 
+import com.shaka.Bank.account.domain.Account
+import com.shaka.Bank.account.domain.AccountRepository
 import com.shaka.Bank.core.GenericResult
 import java.util.concurrent.atomic.AtomicLong
 

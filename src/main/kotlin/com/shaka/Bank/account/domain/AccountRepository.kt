@@ -1,4 +1,4 @@
-package com.shaka.Bank.account
+package com.shaka.Bank.account.domain
 
 import com.shaka.Bank.core.GenericResult
 
